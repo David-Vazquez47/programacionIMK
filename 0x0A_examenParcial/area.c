@@ -2,32 +2,23 @@
 #include <math.h>
 #include "main.h"
 
-
-int area(float volumen, float densidad, float costoAnterior)
+int area(float V, float Dn, float CA)
 {
+    float x, x2, A, CF, Dif, G;
 
-    float area, radiomin, areamin, y;
-    float gramos;
-    float pi = 3.1416;
-    float costo, costom2 = 2.45;
+    x = cbrt((2 * V) / (4 * M_PI));
+    x2 = pow(x, 2);
 
-    radiomin = cbrt((2*volumen)/(4*pi));  
+    A = ((2 * M_PI * x2) + 2 * M_PI * x * (V / (M_PI * x2)));
 
-    areamin = (2*pi*(pow(radiomin,2)) + 2*pi*radiomin*(volumen/(pi*pow(radiomin,2))));
+    CF = A * 0.00245;
+    G = V * Dn;
+    Dif = CA - CF;
 
-    y = (volumen/(pi*pow(radiomin,2)));
-
-    costo = areamin * costom2;
-    costo = costo/1000;
-
-    gramos = volumen * densidad;
-    float nuevo = costoAnterior - costo;
-
-    
-    printf("Radio de la tapa: %0.2f cm\n", radiomin);
-    printf("Area total de la lata: %0.2f cm2\n", areamin);   
-    printf("Costo de fabricacion: $ %0.2f\n", costo);     
-    printf("Costo anterior para lata de %0.f ml: $ %0.2f\n", volumen, costoAnterior);
-    printf("Ahorro: $ %0.2f\n", nuevo);
-    printf("%0.f ml en gramos = %0.2f gr\n",volumen,gramos);
+    printf("Radio de la tapa: %0.2f cm\n", x);
+    printf("Area total de la lata: %0.2f cm2\n", A);
+    printf("Costo de fabricacion: $ %0.2f\n", CF);
+    printf("Costo anterior para lata de %0.f ml: $ %0.2f\n", V, CA);
+    printf("Ahorro: $ %0.2f\n", Dif);
+    printf("%0.f ml en gramos = %0.2f gr\n", V, G);
 }

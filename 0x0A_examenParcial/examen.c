@@ -5,57 +5,48 @@
 int main()
 {
 
-    float volumen, densidad, costo;
-    char opcion;
+    float V, c;
+    int T;
 
-    printf("Elige el tipo de producto:\n");
-    printf("a - Aceite\n");
-    printf("b - Alcohol\n");
-    printf("c - Gasolina\n");
-    printf("d - Acetona\n");
-    scanf("%c", &opcion);
+    printf("Elige el tipo de producto:\n - 1 - Aceite\n - 2 - Alcohol\n - 3 - Gasolina\n - 4 - Acetona\n");
+    scanf("%d", &T);
 
     printf("Ingresa el volumen a envasar:\n");
-    scanf("%f", &volumen);
+    scanf("%f", &V);
 
-    if (volumen == 500)
+    if (V == 500)
     {
-        costo = 1.006;
+        c = 1.006;
     }
-    else if (volumen == 1000)
+    else if (V == 1000)
     {
-        costo = 1.6816;
+        c = 1.6816;
     }
-    else if (volumen == 1500)
+    else if (V == 1500)
     {
-        costo = 1.9610;
+        c = 1.9610;
     }
-    else{
-        costo = 3.1038;
-    }
-    
-
-    switch(opcion)
+    else
     {
-        case 'a': 
-        densidad = 0.9;
-        area(volumen, densidad, costo);
-        break;
-        case 'b': 
-        densidad = 0.8;
-        area(volumen, densidad, costo);
-        break;
-        case 'c': 
-        densidad = 0.68;
-        area(volumen, densidad, costo);
-        break;
-        case 'd': 
-        densidad = 0.79;
-        area(volumen, densidad, costo);
-        break;
-        default:
-        printf("Opción no válida\n");
-        break;
+        c = 3.1038;
     }
 
+    switch (T)
+    {
+    case 1:
+        area(V, 0.9, c);
+        break;
+    case 2:
+        area(V, 0.8, c);
+        break;
+    case 3:
+        area(V, 0.68, c);
+        break;
+    case 4:
+        area(V, 0.79, c);
+        break;
+    default:
+        printf("Opcin no disponible\n");
+        break;
+    }
 }
