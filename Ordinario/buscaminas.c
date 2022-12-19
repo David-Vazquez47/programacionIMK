@@ -1,4 +1,4 @@
-//Trabajo hecho por Rodrigo Gómez Paredes, Angel David Vazquez Mayo y Abel Israel
+// Trabajo hecho por Rodrigo Gómez Paredes, Angel David Vazquez Mayo y Abel Israel
 
 #include <ctype.h> // toupper
 #include <time.h>
@@ -6,11 +6,11 @@
 #include <stdlib.h> // rand
 
 // Cosas que puedes modificar c:
-#define COLUMNAS 4
-#define FILAS 4
+#define COLUMNAS 8
+#define FILAS 8
 #define CASILLA_OCULTA ' '
 #define MINA 'M'
-#define CANTIDAD_MINAS 1 // Si colocas más minas que la cantidad de espacios disponibles (COLUMNAS * FILAS), fallará
+#define CANTIDAD_MINAS 47 // Si colocas más minas que la cantidad de espacios disponibles (COLUMNAS * FILAS), fallará
 
 // Cosas que no tendrías que modificar a menos que quieras adaptarlo a tus ideas :v
 int conteo = 0;
@@ -150,14 +150,13 @@ int main()
                     if (tablero[fila][columna] == 'M')
                     {
                         tablero_usuario[fila][columna] = 'M';
-                         
                     }
                 }
             }
 
             printf("¡Has perdido!\n");
             printf("Estas eran las posiciones de las minas\n");
-            imprimirTablero(tablero_usuario);
+            imprimirTablero(tablero);
             break;
         }
         if (tablero_usuario[fila][columna] == ' ')
